@@ -53,7 +53,7 @@ paths_as_df <- function(x) {
 #' Note that planar coordinates are assumed, no matter what projection the input is in. There's no
 #' sensible meaning to a value for \code{a} in units m^2 for a layer that is in longitude/latitude, for those
 #' use "area in square degrees", the straightforward meaning in planar coordinates.
-#' These arguments are, from the documention of that function:
+#' These arguments are, from the documentation of that function:
 #' \itemize{
 ##' \item{a}{ a Maximum triangle area. If specified, triangles cannot be
 ##' larger than this area.}
@@ -83,7 +83,7 @@ paths_as_df <- function(x) {
 #' @importFrom sf st_cast
 #' @examples
 #' library(sf)
-#' nc <- st_read(system.file("shape/nc.shp", package="sf"))
+#' nc <- read_sf(system.file("shape/nc.shp", package="sf"), quiet = TRUE)
 #' nc_triangles <- ct_triangulate(nc[, c("NAME", "geometry")])
 #' plot(nc[, "NAME"])
 #' plot(nc_triangles, add = TRUE, col = NA, lty = "dotted")

@@ -1,3 +1,7 @@
+# sfdct 0.0.4
+
+* inserted spaces after the word POLYGON
+
 # sfdct 0.0.3
 
 * first CRAN release 

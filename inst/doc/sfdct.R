@@ -3,7 +3,7 @@
 
 library(sf)
 library(sfdct)
-nc <- st_read(system.file("shape/nc.shp", package="sf"))
+nc <- read_sf(system.file("shape/nc.shp", package="sf"), quiet = TRUE)
 nc_triangles <- ct_triangulate(nc)
 
 plot(st_geometry(nc_triangles),   col = viridisLite::viridis(nrow(nc_triangles)))
