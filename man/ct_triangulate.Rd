@@ -2,17 +2,11 @@
 % Please edit documentation in R/sfdct.R
 \name{ct_triangulate}
 \alias{ct_triangulate}
-\alias{ct_triangulate}
 \alias{ct_triangulate.POINT}
-\alias{ct_triangulate}
 \alias{ct_triangulate.MULTIPOINT}
-\alias{ct_triangulate}
 \alias{ct_triangulate.GEOMETRYCOLLECTION}
-\alias{ct_triangulate}
 \alias{ct_triangulate.sfg}
-\alias{ct_triangulate}
 \alias{ct_triangulate.sfc}
-\alias{ct_triangulate}
 \alias{ct_triangulate.sf}
 \title{Constrained Delaunay Triangulation}
 \usage{
@@ -100,6 +94,7 @@ nc <- st_transform(nc, "+proj=eqc +ellps=WGS84")
 }
 
 plot(st_triangulate(nc[idx, c("NAME", "geometry")]), col = "grey")
-plot(ct_triangulate(nc[idx, c("NAME", "geometry")]))
 
+## Warning ct_triangulate does correctly triangulate longitude/latitude data
+plot(ct_triangulate(nc[idx, c("NAME", "geometry")]))
 }

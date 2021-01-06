@@ -94,9 +94,11 @@ paths_as_df <- function(x) {
 #' }
 #'
 #' plot(st_triangulate(nc[idx, c("NAME", "geometry")]), col = "grey")
-#' plot(ct_triangulate(nc[idx, c("NAME", "geometry")]))
 #'
+#' ## Warning ct_triangulate does correctly triangulate longitude/latitude data
+#' plot(ct_triangulate(nc[idx, c("NAME", "geometry")]))
 ct_triangulate <- function(x,  ...) {
+
   UseMethod("ct_triangulate")
 }
 #' @export

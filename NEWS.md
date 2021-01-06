@@ -1,3 +1,57 @@
+# sfdct 0.1.0
+
+* Fixed for CRAN, a failing test due to new more-robust GEOS (3.9.0), thanks 
+ Roger Bivand https://github.com/hypertidy/sfdct/issues/13. 
+
+
+* testthat changes, `is_false()` to `expect_false()` to avoid warnings. 
+
+
+This is about the Debian check errors, currently only for
+r-devel-linux-x86_64-debian-gcc: presumably from a recent system upgrade
+to GEOS 3.9 ...
+
+Check Details
+Version: 0.0.6
+Check: tests
+Result: ERROR
+     Running ‘testthat.R’ [8s/13s]
+    Running the tests in ‘tests/testthat.R’ failed.
+    Complete output:
+     > library(testthat)
+     > library(sfdct)
+     >
+     > test_check("sfdct")
+     ══ Warnings ════════════════════════════════════════════════════════════════════
+     ── Warning (test-basic-ct.R:46:3): different inputs work ───────────────────────
+     `is_false()` is deprecated. Please use `expect_false()` instead.
+     Backtrace:
+     1. testthat::expect_that(lstri %>% is_empty(), is_false()) test-basic-ct.R:46:2
+     2. testthat:::condition(object)
+     ── Warning (test-basic-ct.R:80:4): we can triangulate a geometrycollection ─────
+     `is_false()` is deprecated. Please use `expect_false()` instead.
+     Backtrace:
+     1. testthat::expect_that(...) test-basic-ct.R:80:3
+     2. testthat:::condition(object)
+     ── Warning (test-basic-ct.R:82:4): we can triangulate a geometrycollection ─────
+     `is_false()` is deprecated. Please use `expect_false()` instead.
+     Backtrace:
+     1. testthat::expect_that(...) test-basic-ct.R:82:3
+     2. testthat:::condition(object)
+    
+     ══ Failed tests ════════════════════════════════════════════════════════════════
+     ── Failure (test-prepair-benchmarks.R:41:3): Square with wrong orientation ─────
+     sf::st_as_text(st_geometry(fix_wkt(wkt))) == wkt is not FALSE
+    
+     `actual`: TRUE
+     `expected`: FALSE
+    
+     [ FAIL 1 | WARN 3 | SKIP 0 | PASS 45 ]
+     Error: Test failures
+     Execution halted
+Flavor: r-devel-linux-x86_64-debian-gcc
+
+
 # sfdct 0.0.6
 
 * Fixed polygon repair tests due to changes in `st_is_valid` operation in sf. 
