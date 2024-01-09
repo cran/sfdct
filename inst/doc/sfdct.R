@@ -49,9 +49,9 @@ nc_triangles[1:2, c(1, 5)] %>% st_transform("+proj=laea") %>% ct_triangulate(a =
 
 ## -----------------------------------------------------------------------------
 data("antarctica")
-plot(antarctica)
+plot(antarctica[0])
 a <- ct_triangulate(st_difference(antarctica[1], antarctica[2, ]), a = 5e10)
-plot(st_geometry(a), col = "firebrick")
+plot(a[0], col = "firebrick")
 
 ## -----------------------------------------------------------------------------
 m <- map_world %>% dplyr::filter(startsWith(ID, "Papua New Guinea"))
